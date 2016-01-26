@@ -1,0 +1,9 @@
+#1 creer la socket : socket();
+
+#2 associer la socket a un port : bind();
+
+#3 ecouter ce qui se passe sur la soclet : listen();
+
+#4 accepter les connexions : accpet();
+
+#5 lire et ecrire sur la socket : read(); write();
