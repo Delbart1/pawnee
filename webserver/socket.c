@@ -3,11 +3,15 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <arpa/inet.h>
+#include <string.h>
 
 int creer_serveur(int port)
 {
 
+
+
 	int socket_serveur = socket(AF_INET, SOCK_STREAM, 0);
+
 	if(socket_serveur == -1)
 	{
 		perror("socket_serveur");
@@ -18,6 +22,8 @@ int creer_serveur(int port)
 	saddr.sin_family = AF_INET;
 	saddr.sin_port = htons (port);
 	saddr.sin_addr.s_addr = INADDR_ANY;
+
+	
 	if(bind(socket_serveur, (struct sockaddr *)&saddr, sizeof(saddr)) == -1)
 	{
 		perror ("bind socket_serveur");
@@ -30,12 +36,6 @@ int creer_serveur(int port)
 		return -1;
 	}
 
-	if(close(socket_serveur) == -1)
-	{
-		perror("close socket_serveur");
-		return -1;
-	}
-
-	return 0;
+	return socket_serveur;
 }
 
