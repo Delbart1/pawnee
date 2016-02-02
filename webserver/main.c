@@ -25,14 +25,12 @@ int main(/*int argc, char **argv*/void)
 			return -1;	
 		}
 		
-		char * buffer = malloc(300);
-
-		
 		const char *message_bienvenue = "Bonjour, bienvenue sur mon serveur\n";
 		write(socket_client,message_bienvenue, strlen(message_bienvenue));
 
 		while(1)
 		{
+			char * buffer = malloc(256);
 			if(read(socket_client,buffer,sizeof(buffer)) == -1)
 			{
 				perror("read client");
