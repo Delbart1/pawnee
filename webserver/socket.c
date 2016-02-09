@@ -19,8 +19,11 @@ void initialiser_signaux(void){
 
 int creer_serveur(int port)
 {
+
 		int opt_val = 1;
 		int socket_serveur = socket(AF_INET, SOCK_STREAM, 0);
+
+		initialiser_signaux();
 
 	if(setsockopt(socket_serveur, SOL_SOCKET, SO_REUSEADDR, &opt_val , sizeof(int)) == -1)
 	{
