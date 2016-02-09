@@ -3,14 +3,26 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <arpa/inet.h>
+#include <signal.h>
+#include <stdlib.h>
 #include <string.h>
+
+
+void initialiser_signaux(void){
+
+	if(signal(SIGPIPE,SIG_IGN)==SIG_ERR)
+	{
+		perror("signal");
+	}
+}
+
 
 int creer_serveur(int port)
 {
 		int opt_val = 1;
 		int socket_serveur = socket(AF_INET, SOCK_STREAM, 0);
 
-		if(setsockopt(socket_serveur, SOL_SOCKET, SO_REUSEADDR, &opt_val , sizeof(int)) == -1)
+	if(setsockopt(socket_serveur, SOL_SOCKET, SO_REUSEADDR, &opt_val , sizeof(int)) == -1)
 	{
 		perror("Can not set SO_REUSEADDR option");
 		return -1;

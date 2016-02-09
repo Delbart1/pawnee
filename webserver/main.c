@@ -12,7 +12,7 @@ int main(/*int argc, char **argv*/void)
 	printf("pawnee");
 	int socket_client;
 	int socket_serveur = creer_serveur(8080);
-	
+	initialiser_signaux();
 
 	
 	while(1)
@@ -26,7 +26,7 @@ int main(/*int argc, char **argv*/void)
 			return -1;	
 		}
 		
-		const char *message_bienvenue = "Bonjour, bienvenue sur mon serveur lblablalbalblablalbalblablalbalblablalbalblablabllbalbalbalblablabalbe\n";
+		const char *message_bienvenue = "Bonjour, bienvenue sur mon serveurazepazuyiuhdciushdiuhsiuhiushfsuihhdihuihuihiuhiuhdpqihsdoshdipuiuazazeazeazeazeasdfsdfsdfsdfsdfsdfsdfsfdsfdsdfsdfsfdsdfzaesdfsgsfsdazeazeazeazeazeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeazeazeaazegsdfjivwouxhdomjfùmkcqsdniugvohùiwxlkcnvbfisdhvsdcuhsuid\n";
 		sleep(1);
 		write(socket_client,message_bienvenue, strlen(message_bienvenue));
 
@@ -38,7 +38,6 @@ int main(/*int argc, char **argv*/void)
 				perror("read client");
 				return -1;
 			}
-
 
 
 			if(strncmp("/close",buffer,5) == 0)
