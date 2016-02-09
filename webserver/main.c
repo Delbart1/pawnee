@@ -12,8 +12,6 @@ int main(/*int argc, char **argv*/void)
 	printf("pawnee");
 	int socket_client;
 	int socket_serveur = creer_serveur(8080);
-	initialiser_signaux();
-
 	
 	while(1)
 	{
