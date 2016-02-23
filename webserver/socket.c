@@ -6,12 +6,14 @@
 #include <signal.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/wait.h>
 
 
 
 void traitement_signal (int sig)
 {
 	printf ("Signal %d reçu\n" ,sig);
+	waitpid(-1,NULL,WNOHANG);
 }
 
 void initialiser_signaux(void)
@@ -24,6 +26,7 @@ void initialiser_signaux(void)
 	{
 		perror("sigaction(SIGCHLD)");
 	}
+
 }
 
 int creer_serveur(int port)

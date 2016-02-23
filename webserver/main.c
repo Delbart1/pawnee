@@ -5,6 +5,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <stdlib.h>
+#include "socket.h"
 
 int main(/*int argc, char **argv*/void)
 {
@@ -55,6 +56,7 @@ int main(/*int argc, char **argv*/void)
 					write(socket_client,buffer, sizeof(buffer));
 				}
 			}	
+
 		}
 		else
 		{
