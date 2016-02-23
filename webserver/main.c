@@ -13,7 +13,8 @@ int main(/*int argc, char **argv*/void)
 	printf("pawnee");
 	int socket_client;
 	int socket_serveur = creer_serveur(8080);
-	
+
+	//FILE* fdopen ( int fd , const char "w+" );
 	while(1)
 	{
 		int end = 1;
